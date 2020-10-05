@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css"></style>
+        <title>Website WordCount | eBhasha Setu</title>
+        <!-- Vendor CSS -->
+            <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/399005a.css') }}" type="text/css">
+        
+        <!-- CSS -->
+            <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/app.css') }}" type="text/css">
+        
+        <link rel="apple-touch-icon" sizes="180x180" src="{{ url_for('static',filename='styles/img/Logo.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" src="{{ url_for('static',filename='styles/img/Logo.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" src="{{ url_for('static',filename='styles/img/Logo.png') }}">
+        <link rel="manifest" href="{{ url_for('static',filename='styles/img/eBhasha.png') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">           
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            $('input').load(function(){
+                $("tr").remove();
+            });
+        });
+</script>
+    </head>
+    <body class="">
+        <main id="main" class="main ">
+            <header>
+                <div class="container pt-4">
+                    <div class="header__logo" style="display: inline-block;">
+                        <h1 class="nav-logo">
+                            <a class="color-wg-blue" href="http://www.ebhashasetu.com/"><b>e</b><span class="nav-logo-g "><b>B</b></span><b>hasha Setu</b></a>
+                        </h1>
+                    </div>
+                </div>
+            </header>
+            <section class="container pt-4 pb-4">
+                <div class="pb-3">
+                    <form action="{{ url_for('output_data') }}" method="POST">
+                        <div class="search__inner">
+                            <input  type="text" name="projectFilepath" id="placeurl" class="search__text keep" placeholder="Enter URL here..." autofocus="" value={{ link_data }} <input type="text" name="projectFilepath" id="placeurl" class="search__text keep" placeholder="Enter URL here..." autofocus="" value="" style="font-size: 129%;">
+                            <i class="zmdi zmdi-search search__helper color-grey" style="font-size: 19px;line-height: 46px;letter-spacing: 0.065em;font-weight: 500;font-style: normal;"></i>
+                        </div>
+                    </form>
+                </div>
+                <div id="word-count-error" class="alert alert-danger mb-0" role="alert" style="display: none;">We could not connect to your website, please check you enter a proper URL.</div>
+            <section>
+            <section id="word-count-results" class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="content__title">
+                            <div class="content__title-text">
+                                <h1>Total word count</h1>
+                            </div>
+                        </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="zmdi zmdi-help-outline float-right mt-2 mr-2" data-toggle="popover" data-placement="right" data-html="true" data-trigger="hover" data-content="The total word count includes the number of words on your website. Please note the following :&lt;br/&gt;&lt;br/&gt;
+                                        &lt;ul&gt;
+                                                &lt;li&gt;It doesn't count multiple time the same sentence, for example the words in the menu or footer are counted once even if they are on all pages.&lt;/li&gt;
+                                                &lt;li&gt;Weglot also counts invisible text like Meta description or title tags, which is important for SEO.&lt;/li&gt;
+                                        &lt;/ul&gt;" data-original-title="" title=""></i>
+                            <h2 id="word-count-total-number" class="text-center mt-4 mb-4" data-value="">{{ tot_len }}</h2>
+                        </div>
+                        <div class="loading-overlay hide">
+                            <span class="spinner"></span>
+                        </div>
+                    </div>
+                    <div id="word-count-steps" class="row">
+                        <div class="col-2 pr-0">
+                            <i class="zmdi zmdi-check text-success"></i>
+                        </div>
+                        <div class="col-10 pl-0">
+                            <p class="animated fadeIn">Getting to all public URLs</p>
+                        </div>
+                        <div class="col-2 pr-0">
+                            <i class="zmdi zmdi-check text-success"></i>
+                        </div>
+                        <div class="col-10 pl-0">
+                            <p class="animated fadeIn">Counting words in all your HTML</p>
+                        </div>
+                        <div class="col-2 pr-0">
+                            <i class="zmdi zmdi-info text-warning"></i>
+                        </div>
+                        <div class="col-10 pl-0">
+                            <p class="animated fadeIn">Word count stopped as you reached the execution time limit.</p>
+                        </div>
+                        <p class="col-12 pt-2">Please note that the total word count is a unique count. It does not count the same sentence twice.</p></div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="content__title">
+                            <div class="content__title-text">
+                                <h1>By page</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body mt-0 mb-1" style="max-height: 400px; min-height: 100px; overflow: auto;">
+                                <div class="dummy-content pt-3 hide">
+                                    <div>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                        <p></p>
+                                        <span class="short"></span>
+                                        <span class="line-break"></span>
+                                    </div>
+                                </div>
+                                <table id="word-count-table" class="table table-inner">
+                                    <tbody data-wg-notranslate="">
+                                        {% for data in result %}
+                                            <tr class="animated fadeIn" data-unique-word-count=" ">
+                                                <td>{{data['link']}}</td>
+                                                <td class="font-weight-bold text-right">{{data['total']}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer" class="footer" style="margin-top: 0px;">
+                <div class="container text-wa">
+                    <a href="http://www.ebhashasetu.com/">
+                        <img src="{{ url_for('static',filename='styles/img/eBhasha-Logo-Tagline-min.png') }}" width="150">
+                    </a>
+                </div>
+            </footer>
+        </main>
+    </body>
+</html>

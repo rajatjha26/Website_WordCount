@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css"></style>
+        <title>Website WordCount | eBhasha Setu</title>
+        <!-- Vendor CSS -->
+            <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/399005a.css') }}" type="text/css">
+        
+        <!-- CSS -->
+            <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/app.css') }}" type="text/css">
+        
+        <link rel="apple-touch-icon" sizes="180x180" src="{{ url_for('static',filename='styles/img/Logo.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" src="{{ url_for('static',filename='styles/img/Logo.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" src="{{ url_for('static',filename='styles/img/Logo.png') }}">
+        <link rel="manifest" href="{{ url_for('static',filename='styles/img/eBhasha.png') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">           
+    </head>
+    <body class="">
+        <main id="main" class="main ">
+            <header>
+                <div class="container pt-4">
+                    <div class="header__logo" style="display: inline-block;">
+                        <h1 class="nav-logo">
+                            <a class="color-wg-blue" href="http://www.ebhashasetu.com/"><b>e</b><span class="nav-logo-g "><b>B</b></span><b>hasha Setu</b></a>
+                        </h1>
+                    </div>
+                </div>
+            </header>
+            <section class="container pt-4 pb-4">
+                <div class="text-center pt-2">
+                    <div id="word-count-header" class="mb-4 hidden-xs-down" style="margin-top: 10rem;">
+                        <h1 class="h2">
+                            <img class="arrow left" src="{{ url_for('static',filename='styles/img/arrow.svg') }}">
+                            <b>Get your website word count</b>
+                            <img class="arrow right" src="{{ url_for('static',filename='styles/img/arrow.svg') }}">
+                        </h1>
+                    </div>
+                    <div class="pb-3">
+                        <form action="{{ url_for('output_data') }}" method="POST">
+                            <div class="search__inner">
+                                <input  type="text" name="projectFilepath" id="placeurl" class="search__text keep" placeholder="Enter URL here..."  value="" autofocus="">
+                                <i class="zmdi zmdi-search search__helper color-grey"></i>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="word-count-landing" class="container pb-5">
+                <div class="row">
+                    <div class="col-md-4 pr-md-4">
+                        <h2 class="h1">How many words do you have on your website?</h2>
+                    </div>
+                    <div class="col-md-8 pl-md-5" style="border-left: 1px solid #9E9E9E;">
+                        <h3>We analyze your website word count based on public pages.</h3>
+                        <p class="lead mt-4">
+                            <small>All words belonging to public pages and included in your HTML source code are taken into account, even SEO tags. Leverage your content by getting translated website pages using eBhasha Setu.</small>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        
+            <footer id="footer" class="footer" style="margin-top: 0px;">
+                <div class="container text-wa">
+                    <a href="http://www.ebhashasetu.com/">
+                        <img src="{{ url_for('static',filename='styles/img/eBhasha-Logo-Tagline-min.png') }}" width="150">
+                    </a>
+                </div>
+            </footer>
+        </main>  
+    </body>
+</html>
